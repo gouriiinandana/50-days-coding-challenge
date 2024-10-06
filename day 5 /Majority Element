@@ -1,0 +1,23 @@
+Q. Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+  #CODE:
+  
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int, int> hash;
+        int res = 0;
+        int majority = 0;
+
+        for (int n : nums) {
+            hash[n] = 1 + hash[n];
+            if (hash[n] > majority) {
+                res = n;
+                majority = hash[n];
+            }
+        }
+
+        return res;        
+    }
+};
