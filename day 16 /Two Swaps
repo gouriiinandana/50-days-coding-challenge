@@ -1,0 +1,26 @@
+Q. Given a permutation of some of the first natural numbers in an array arr[], determine if the array can be sorted in exactly two swaps. 
+  A swap can involve the same pair of indices twice.
+  Return true if it is possible to sort the array with exactly two swaps, otherwise return false.
+
+  #CODE:
+ 
+class Solution {
+  public:
+    bool checkSorted(vector<int> &a) {
+        // code here.
+        int n = a.size(), swaps = 0;
+        for(int i = 0; i < n; i++){
+            while(swaps <= 2 && a[i] != i + 1){
+                swap(a[i], a[a[i] - 1]);
+                swaps++;
+            }
+            
+            if(swaps > 2)
+                return false;
+        }
+        
+        if(swaps == 1)
+            return false;
+        return true;
+    }
+};
