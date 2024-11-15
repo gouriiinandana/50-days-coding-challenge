@@ -1,0 +1,23 @@
+Q. Given an array of positive integers arr[], return the second largest element from the array. If the second largest element doesn't exist then return -1.
+
+  #CODE:
+
+class Solution {
+  public:
+    int getSecondLargest(vector<int> &arr) {
+        int maxi=arr[0];
+        int second=-1;
+        int n=arr.size();
+        for(int i=1; i<n; i++){
+            if(arr[i]>maxi){
+                maxi=arr[i];
+            }
+        }
+        for(int i=0; i<n; i++){
+            if(second<arr[i]  & arr[i]<maxi){
+                second=arr[i];
+            }
+        }
+        return second;
+    }
+};
