@@ -1,0 +1,17 @@
+Q. Given an array arr[]. Push all the zeros of the given array to the right end of the array while maintaining the order of non-zero elements. Do the mentioned change in the array in place.
+
+  #CODE: 
+
+  class Solution {
+  public:
+    void pushZerosToEnd(vector<int>& arr) {
+
+        int i=0, cnt = 0;
+        for(int j=0; j<arr.size(); j++){
+            if(arr[j]) arr[i++] = arr[j];
+            else cnt++;
+        }
+        i = arr.size() - 1;
+        while(cnt--) arr[i--] = 0;
+    }
+};
